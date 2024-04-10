@@ -1,31 +1,22 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'application'
+plugins {
+    id 'java'
+    id 'application'
+}
 
-mainClassName = 'hello.HelloWorld'
+application {
+    mainClass.set('hello.HelloWorld')
+}
 
-// tag::repositories[]
 repositories { 
     mavenCentral() 
 }
-// end::repositories[]
 
-// tag::jar[]
 jar {
     archiveBaseName = 'sdk-test'
     archiveVersion =  '0.0.1'
 }
-// end::jar[]
-
-// tag::dependencies[]
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
     implementation "joda-time:joda-time:2.2"
     testImplementation "junit:junit:4.12"
 }
-// end::dependencies[]
-
-// tag::wrapper[]
-// end::wrapper[]
